@@ -69,6 +69,29 @@
         memberContent: '',
         loading: false,
         loadError: false,
+        certificate: null,
+
+        openCertificate(event) {
+            const card = event.target.closest('[data-certificate]')
+
+            if (!card) {
+                return
+            }
+
+            this.certificate = {
+                image: card.dataset.certificateImage,
+                title: card.dataset.certificateTitle,
+                issuer: card.dataset.certificateIssuer,
+                year: card.dataset.certificateYear,
+                category: card.dataset.certificateCategory,
+                description: card.dataset.certificateDescription,
+                link: 'https://drive.google.com/file/d/' + card.dataset.certificateFileId + '/view'
+            }
+        },
+
+        closeCertificate() {
+            this.certificate = null
+        },
 
         async loadMember(url) {
             this.memberOpen = true
@@ -93,12 +116,15 @@
         },
 
         closeMember() {
+            this.closeCertificate()
             this.memberOpen = false
             this.memberContent = ''
             this.loadError = false
             document.body.style.overflow = ''
         }
     }"
+    @click="openCertificate($event)"
+    @keydown.escape.window="certificate ? closeCertificate() : closeMember()"
     class="bg-base font-sans text-zinc-300 antialiased selection:bg-accent selection:text-base overflow-x-hidden">
     
     <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
@@ -375,8 +401,8 @@
     </main>
 
 
-    <div x-cloak x-show="memberOpen" x-transition.opacity @keydown.escape.window="closeMember()"class="fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto bg-black/80 p-4 backdrop-blur-md sm:p-6 lg:p-10">
-        <div @click.outside="closeMember()" x-transition class="mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-outline bg-base shadow-2xl">
+    <div x-cloak x-show="memberOpen" x-transition.opacity @click.self="if (!certificate) closeMember()" class="fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto bg-black/80 p-4 backdrop-blur-md sm:p-6 lg:p-10">
+        <div x-transition class="mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-outline bg-base shadow-2xl">
             <div x-show="loading" class="grid min-h-[420px] place-items-center p-10">
                 <div class="text-center">
                     <div class="mx-auto h-10 w-10 animate-spin rounded-full border-2 border-zinc-700 border-t-primary"></div>
@@ -393,6 +419,61 @@
                 <button type="button" @click="closeMember()" class="mt-6 rounded-full bg-white px-6 py-3 text-sm font-bold text-base">
                     Tutup
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <div
+        x-cloak
+        x-show="certificate"
+        x-transition.opacity
+        @click.self="closeCertificate()"
+        class="fixed inset-0 z-[60] grid place-items-center overflow-y-auto bg-black/70 p-4 backdrop-blur-md"
+        role="dialog"
+        aria-modal="true"
+        :aria-label="certificate ? 'Sertifikat ' + certificate.title : 'Sertifikat'">
+        <div class="relative my-auto w-full max-w-5xl overflow-hidden rounded-3xl border border-white/20 bg-white/10 shadow-[0_25px_100px_rgba(0,0,0,0.65)] backdrop-blur-2xl">
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-primary/10"></div>
+            <div class="relative flex items-center justify-between gap-4 border-b border-white/10 px-5 py-4 md:px-7">
+                <div>
+                    <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary">Sertifikat Nabil</p>
+                    <h3 class="mt-1 text-lg font-bold text-white" x-text="certificate?.title"></h3>
+                </div>
+                <button
+                    type="button"
+                    @click="closeCertificate()"
+                    class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-white/20"
+                    aria-label="Tutup sertifikat">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="relative grid gap-5 p-4 md:grid-cols-[1.5fr_1fr] md:p-7">
+                <div class="grid min-h-56 place-items-center overflow-hidden rounded-2xl border border-white/15 bg-black/30 p-2">
+                    <img
+                        :src="certificate?.image"
+                        :alt="certificate?.title"
+                        class="max-h-[60vh] w-full rounded-xl object-contain">
+                </div>
+                <div class="flex flex-col justify-center">
+                    <div class="flex flex-wrap gap-2">
+                        <span class="rounded-full border border-primary/30 bg-primary/15 px-3 py-1 text-xs font-semibold text-primary" x-text="certificate?.issuer"></span>
+                        <span class="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-zinc-200" x-text="certificate?.year"></span>
+                    </div>
+                    <p class="mt-4 text-sm font-semibold text-zinc-200" x-text="certificate?.category"></p>
+                    <p class="mt-2 leading-relaxed text-zinc-400" x-text="certificate?.description"></p>
+                    <a
+                        :href="certificate?.link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/15 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur-xl transition hover:bg-white/25">
+                        Buka sertifikat
+                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13.5 6H18m0 0v4.5M18 6l-7 7M10 7.5H6A1.5 1.5 0 004.5 9v9A1.5 1.5 0 006 19.5h9a1.5 1.5 0 001.5-1.5v-4"></path>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
