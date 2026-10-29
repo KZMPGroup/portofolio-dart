@@ -1,0 +1,174 @@
+<div>
+    <div class="relative min-h-[380px] overflow-hidden border-b border-outline">
+        <div class="absolute inset-0 bg-gradient-to-t from-base via-base/90 to-black/40"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-secondary/10"></div>
+
+        <button
+            type="button"
+            @click="closeMember()"
+            class="absolute right-5 top-5 z-30 grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-black/40 text-white backdrop-blur-md transition hover:bg-white hover:text-base"
+            aria-label="Tutup profil">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+
+        <div class="relative z-20 flex min-h-[380px] items-end p-7 md:p-10">
+            <div class="max-w-3xl">
+                <span class="mb-4 inline-flex rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary">
+                    Profil anggota 07
+                </span>
+
+                <h2 class="text-4xl font-black tracking-tight text-white md:text-6xl">
+                    Madista Shefilia Putri
+                </h2>
+
+                <p class="mt-3 text-lg font-medium text-zinc-300">
+                    D3 Teknologi Informasi
+                </p>
+
+                <p class="mt-5 max-w-2xl leading-relaxed text-zinc-400">
+                    Mahasiswa Teknologi Informasi yang sedang belajar membangun inovasi digital.
+                </p>
+
+                <div class="mt-6 flex flex-wrap gap-3">
+                    <a href="https://github.com/7madistashe" target="_blank" rel="noopener noreferrer" class="rounded-full border border-outline bg-surface/80 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-primary/50 hover:bg-primary/10">
+                        GitHub
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/madista-shefilia-putri-a28104355" target="_blank" rel="noopener noreferrer" class="rounded-full border border-outline bg-surface/80 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-secondary/50 hover:bg-secondary/10">
+                        LinkedIn
+                    </a>
+
+                    <a href="https://byviee.blogspot.com/" target="_blank" rel="noopener noreferrer" class="rounded-full border border-outline bg-surface/80 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-accent/50 hover:bg-accent/10">
+                        Blog
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-7 md:p-10">
+        <div class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+            <div class="space-y-8">
+                <section>
+                    <p class="text-xs font-bold uppercase tracking-[0.2em] text-secondary">
+                        Tentang
+                    </p>
+
+                    <h3 class="mt-2 text-2xl font-bold text-white">
+                        Profil Singkat
+                    </h3>
+
+                    <div class="mt-5 rounded-3xl border border-outline bg-surface p-6">
+                        <p class="leading-relaxed text-zinc-400">
+                            Halo, saya mahasiswa Teknologi Informasi di Politeknik Negeri Madiun. Saya senang mempelajari cara kerja teknologi dan bagaimana membangun sebuah inovasi teknologi. Saya juga tertarik mempelajari bahasa asing: bahasa Inggris sebagai bahasa kedua, fasih berbahasa Arab, tentu bahasa Indonesia, dan sedikit bahasa Korea.
+                        </p>
+                    </div>
+                </section>
+
+                <section>
+                    <p class="text-xs font-bold uppercase tracking-[0.2em] text-accent">
+                        Keahlian
+                    </p>
+
+                    <h3 class="mt-2 text-2xl font-bold text-white">
+                        Skill
+                    </h3>
+
+                    <div class="mt-5 flex flex-wrap gap-2">
+                        <span class="rounded-full border border-outline bg-surface px-4 py-2 text-sm text-zinc-300">Bahasa Inggris</span>
+                        <span class="rounded-full border border-outline bg-surface px-4 py-2 text-sm text-zinc-300">Bahasa Arab</span>
+                        <span class="rounded-full border border-outline bg-surface px-4 py-2 text-sm text-zinc-300">Mengajar</span>
+                    </div>
+                </section>
+
+                <section>
+                    <p class="text-xs font-bold uppercase tracking-[0.2em] text-secondary">
+                        Prestasi
+                    </p>
+
+                    <h3 class="mt-2 text-2xl font-bold text-white">
+                        Penghargaan
+                    </h3>
+
+                    <a href="https://drive.google.com/file/d/105dyUUlIn5IwjLdN20c_KaXYmVjunyqi/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="group mt-5 block overflow-hidden rounded-3xl border border-outline bg-surface transition hover:border-secondary/40">
+                        <img src="https://drive.google.com/thumbnail?id=105dyUUlIn5IwjLdN20c_KaXYmVjunyqi&sz=w1000" alt="Sertifikat Kursus Mahir Tingkat Dasar Pembina Pramuka Penggalang" loading="lazy" class="aspect-[16/11] w-full object-cover transition duration-500 group-hover:scale-105">
+                        <div class="p-5">
+                            <p class="text-xs font-bold uppercase tracking-wider text-secondary">Pramuka · 2023</p>
+                            <h4 class="mt-2 font-bold text-white">Kursus Mahir Tingkat Dasar Pembina Pramuka Penggalang</h4>
+                        </div>
+                    </a>
+                </section>
+            </div>
+
+            <div class="space-y-10">
+                <section>
+                    <p class="text-xs font-bold uppercase tracking-[0.2em] text-accent">
+                        Pencapaian
+                    </p>
+
+                    <h3 class="mt-2 text-2xl font-bold text-white">
+                        Sertifikasi
+                    </h3>
+
+                    <div class="mt-5 grid gap-4 sm:grid-cols-2">
+                        <a href="assets/sertifikat/madista/dasar-pemrograman-web.jpg" target="_blank" rel="noopener noreferrer" class="group block overflow-hidden rounded-3xl border border-outline bg-surface transition hover:border-secondary/40">
+                            <img src="assets/sertifikat/madista/dasar-pemrograman-web.jpg" alt="Sertifikat Belajar Dasar Pemrograman Web Madista Shefilia Putri" loading="lazy" class="aspect-[16/11] w-full object-cover transition duration-500 group-hover:scale-105">
+                            <div class="p-5">
+                                <p class="text-xs font-bold uppercase tracking-wider text-secondary">Dicoding Indonesia · 2026</p>
+                                <h4 class="mt-2 font-bold text-white">Belajar Dasar Pemrograman Web</h4>
+                                <p class="mt-2 text-sm text-zinc-400">Lulus pada 10 September 2026.</p>
+                            </div>
+                        </a>
+
+                        <a href="assets/sertifikat/madista/dasar-javascript.jpg" target="_blank" rel="noopener noreferrer" class="group block overflow-hidden rounded-3xl border border-outline bg-surface transition hover:border-primary/40">
+                            <img src="assets/sertifikat/madista/dasar-javascript.jpg" alt="Sertifikat Belajar Dasar Pemrograman JavaScript Madista Shefilia Putri" loading="lazy" class="aspect-[16/11] w-full object-cover transition duration-500 group-hover:scale-105">
+                            <div class="p-5">
+                                <p class="text-xs font-bold uppercase tracking-wider text-primary">Dicoding Indonesia · 2026</p>
+                                <h4 class="mt-2 font-bold text-white">Belajar Dasar Pemrograman JavaScript</h4>
+                                <p class="mt-2 text-sm text-zinc-400">Lulus pada 11 September 2026.</p>
+                            </div>
+                        </a>
+
+                        <a href="assets/sertifikat/madista/financial-literacy.jpg" target="_blank" rel="noopener noreferrer" class="group block overflow-hidden rounded-3xl border border-outline bg-surface transition hover:border-accent/40">
+                            <img src="assets/sertifikat/madista/financial-literacy.jpg" alt="Sertifikat Introduction to Financial Literacy Madista Shefilia Putri" loading="lazy" class="aspect-[16/11] w-full object-cover transition duration-500 group-hover:scale-105">
+                            <div class="p-5">
+                                <p class="text-xs font-bold uppercase tracking-wider text-accent">Dicoding Indonesia · 2026</p>
+                                <h4 class="mt-2 font-bold text-white">Introduction to Financial Literacy</h4>
+                                <p class="mt-2 text-sm text-zinc-400">Lulus pada 10 September 2026.</p>
+                            </div>
+                        </a>
+
+                        <a href="assets/sertifikat/madista/ef-set.jpg" target="_blank" rel="noopener noreferrer" class="group block overflow-hidden rounded-3xl border border-outline bg-surface transition hover:border-secondary/40">
+                            <img src="assets/sertifikat/madista/ef-set.jpg" alt="Sertifikat EF SET English Certificate · C1 Lanjut Madista Shefilia Putri" loading="lazy" class="aspect-[16/11] w-full object-cover object-top transition duration-500 group-hover:scale-105">
+                            <div class="p-5">
+                                <p class="text-xs font-bold uppercase tracking-wider text-secondary">EF SET · 2026</p>
+                                <h4 class="mt-2 font-bold text-white">EF SET English Certificate · C1 Lanjut</h4>
+                                <p class="mt-2 text-sm text-zinc-400">Skor 66/100 (C1 Lanjut), membaca dan mendengarkan, 22 September 2026.</p>
+                            </div>
+                        </a>
+
+                        <a href="assets/sertifikat/madista/data-analytics.jpg" target="_blank" rel="noopener noreferrer" class="group block overflow-hidden rounded-3xl border border-outline bg-surface transition hover:border-primary/40">
+                            <img src="assets/sertifikat/madista/data-analytics.jpg" alt="Sertifikat Data Analytics for Beginners Madista Shefilia Putri" loading="lazy" class="aspect-[16/11] w-full object-cover transition duration-500 group-hover:scale-105">
+                            <div class="p-5">
+                                <p class="text-xs font-bold uppercase tracking-wider text-primary">Cursa · 2026</p>
+                                <h4 class="mt-2 font-bold text-white">Data Analytics for Beginners</h4>
+                                <p class="mt-2 text-sm text-zinc-400">Kursus e-learning, selesai 22 September 2026.</p>
+                            </div>
+                        </a>
+
+                        <a href="assets/sertifikat/madista/information-security-management.jpg" target="_blank" rel="noopener noreferrer" class="group block overflow-hidden rounded-3xl border border-outline bg-surface transition hover:border-accent/40">
+                            <img src="assets/sertifikat/madista/information-security-management.jpg" alt="Sertifikat Information Security Management Fundamentals Madista Shefilia Putri" loading="lazy" class="aspect-[16/11] w-full object-cover transition duration-500 group-hover:scale-105">
+                            <div class="p-5">
+                                <p class="text-xs font-bold uppercase tracking-wider text-accent">Cursa · 2026</p>
+                                <h4 class="mt-2 font-bold text-white">Information Security Management Fundamentals</h4>
+                                <p class="mt-2 text-sm text-zinc-400">Kursus e-learning, selesai 30 September 2026.</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
